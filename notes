@@ -1,0 +1,113 @@
+family_tree_builder/
+├── main.py                     # Entry point
+├── requirements.txt            # Dependencies
+├── assets/                     # Images, icons, etc.
+├── models/
+│   ├── __init__.py
+│   ├── person.py               # Person class
+│   ├── relationship.py         # Relationship class
+│   ├── family_tree.py          # FamilyTree class
+│   └── data_manager.py         # Data loading/saving
+├── views/
+│   ├── __init__.py
+│   ├── main_window.py          # Main application window
+│   ├── tree_view.py            # Tree visualization
+│   ├── timeline_view.py        # Timeline visualization
+│   ├── list_view.py            # List visualization
+│   ├── person_dialog.py        # Dialog for creating/editing people
+│   └── widgets/                # Reusable UI components
+│       ├── __init__.py
+│       ├── person_card.py      # Visual representation of a person
+│       └── relationship_line.py # Visual connection between people
+└── controllers/
+    ├── __init__.py
+    ├── app_controller.py       # Main application logic
+    ├── tree_controller.py      # Tree manipulation logic
+    └── export_controller.py    # Export/print functionality
+
+    Main Modules
+
+Data Manager (models/data_manager.py)
+
+- Handles serialisation/deserialisation of family tree data to/from files
+- File format will be JSON-based for simplicity and compatibility
+- Handles auto-saving and backups
+
+Main Window (views/main_window.py)
+- Main application UI with toolbar, menu, and status bar
+- Container for different visualisation views
+- Handles view switching and global UI events
+
+Tree View (views/tree_view.py)
+- Canvas-based component for tree visualisation
+- Implements zooming, panning, and drag-drop operations
+- Renders person cards and relationship lines
+
+App Controller (controllers/app_controller.py)
+
+- Initialises models and views
+- Handles interaction between user interface and data model
+- Manages application state and settings
+
+Export Controller (controllers/export_controller.py)
+- Handles image export (PNG, JPG)
+- Manages print functionality
+- Future: could handle additional export formats
+
+Key Functionality Implementation Notes ---------------------
+
+Person Creation and Editing
+- Modal dialog for entering person details
+- Input validation for required fields
+- Upload/crop functionality for photos
+
+Relationship Management
+- Interactive UI for creating connections between people
+- Validation to prevent impossible relationships (e.g., person is their own ancestor)
+- Automatic creation of implied relationships (e.g., adding siblings automatically)
+
+Visualization Algorithms
+- Tree layout algorithm prioritising clarity and aesthetics
+- Timeline sorting and grouping options
+- Search index for quick person lookups
+
+File Management
+- Auto-save feature (configurable interval)
+- File versioning for safety
+- Error handling for corrupt or incompatible files
+
+Development Phases
+
+Core Model Implementation
+
+- Implement Person, Relationship, and FamilyTree classes
+- Build basic data persistence
+
+
+Basic UI Framework
+
+Implement main window and controllers
+Create simple list view for people and relationships
+
+
+Tree Visualization
+
+Implement tree view with basic layout algorithm
+Add zooming and panning
+
+
+Advanced Features
+
+Relationship calculator
+Timeline view
+Custom fields for Sims integration
+
+
+Polish and Distribution
+
+Export functionality
+Documentation
+Installation package
+
+
+
